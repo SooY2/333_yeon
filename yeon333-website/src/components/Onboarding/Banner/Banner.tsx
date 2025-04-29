@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
 const Banner = () => {
@@ -20,6 +21,15 @@ const Banner = () => {
 };
 
 export default Banner;
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 const StBanner = {
   container: styled.div`
@@ -52,6 +62,8 @@ const StBanner = {
     margin-bottom: 15rem;
     display: flex;
     flex-direction: column;
+    opacity: 0;
+    animation: ${fadeIn} 3s ease-in-out forwards;
   `,
   title: styled.h1`
     font-size: 12rem;
