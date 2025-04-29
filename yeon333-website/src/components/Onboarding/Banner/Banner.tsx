@@ -1,5 +1,6 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
+import Logo from '../../Common/Logo/Logo';
 
 const Banner = () => {
   return (
@@ -11,7 +12,7 @@ const Banner = () => {
       </StBanner.videoWrapper>
       <StBanner.textWrapper>
         <StBanner.title>
-          ri<span>&#x02D0;</span>&#x02c8;bɔ<span>&#x02D0;</span>rn
+          <Logo type='large' />
         </StBanner.title>
         <StBanner.subTitle>2025 GLOBAL MEDIA</StBanner.subTitle>
         <StBanner.subTitle>GRADUATION EXIBITION</StBanner.subTitle>
@@ -65,14 +66,8 @@ const StBanner = {
     opacity: 0;
     animation: ${fadeIn} 3s ease-in-out forwards;
   `,
-  title: styled.h1`
-    font-size: 12rem;
-    font-family: 'Abril Fatface', sans-serif;
+  title: styled.div`
     margin-bottom: 3rem;
-
-    & span {
-      letter-spacing: -7rem;
-    }
   `,
   subTitle: styled.p`
     font-size: 4rem;

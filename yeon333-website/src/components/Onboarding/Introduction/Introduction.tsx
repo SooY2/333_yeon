@@ -7,7 +7,7 @@ const Introduction = () => {
       <StIntro.motionTextBox
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut' }}
+        transition={{ duration: 2, ease: 'easeOut' }}
         viewport={{ once: true }}
       >
         <span>“riːˈbɔːrn”은 끊임없이 변화하는 입자의 흐름을 통해 </span>
@@ -17,7 +17,7 @@ const Introduction = () => {
       <StIntro.motionTextBox
         initial={{ opacity: 0, y: 100 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: 'easeOut', delay: 0.3 }}
+        transition={{ duration: 2, ease: 'easeOut', delay: 0.3 }}
         viewport={{ once: true }}
       >
         <span>철제 구조물 위 초대형 패브릭을 캔버스로 활용하며</span>
