@@ -14,13 +14,13 @@ const StLogo = styled.p<{ type: 'large' | 'regular' | 'small' }>`
   font-family: 'Abril Fatface', sans-serif;
 
   font-size: ${({ type }) =>
-    type === 'large' ? '12rem' : type === 'regular' ? '6rem' : '2.8rem'};
+    type === 'large' ? '11.5rem' : type === 'regular' ? '6rem' : '2.8rem'};
 
   font-weight: ${({ type }) =>
     type === 'large' ? '500' : type === 'regular' ? '400' : '100'};
 
   & span {
     letter-spacing: ${({ type }) =>
-      type === 'large' ? '-7rem' : type === 'regular' ? '-3rem' : '-1.5rem'};
+      type === 'large' ? '-6rem' : type === 'regular' ? '-3rem' : '-1.5rem'};
   }
 `;

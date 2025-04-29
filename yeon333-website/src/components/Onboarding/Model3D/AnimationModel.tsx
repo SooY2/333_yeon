@@ -5,7 +5,7 @@ import { Group, LoopOnce } from 'three';
 
 export default function AnimationScene() {
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '100%' }}>
       <Canvas camera={{ position: [2, 2, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
         <directionalLight position={[5, 5, 5]} />
@@ -38,7 +38,7 @@ function AnimationModel() {
 
   return (
     <group ref={groupRef} onClick={handleClick}>
-      <primitive object={scene} scale={1} />
+      <primitive object={scene} scale={1.5} />
     </group>
   );
 }

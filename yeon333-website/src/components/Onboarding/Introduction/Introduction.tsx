@@ -39,7 +39,7 @@ const StIntro = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 15rem;
+    margin: 15rem 15rem 20rem;
     gap: 3rem;
   `,
   motionTextBox: styled(motion.p)`
@@ -47,7 +47,9 @@ const StIntro = {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: 1.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 1.7rem;
     line-height: 150%;
   `,
 };

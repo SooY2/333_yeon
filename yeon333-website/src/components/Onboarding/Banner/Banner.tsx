@@ -70,7 +70,7 @@ const StBanner = {
     margin-bottom: 3rem;
   `,
   subTitle: styled.p`
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-family: 'Abril Fatface', sans-serif;
     line-height: 120%;
   `,
