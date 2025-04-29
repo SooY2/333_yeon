@@ -10,10 +10,6 @@ const globalStyles = css`
     margin: 0;
   }
 
-  html {
-    font-size: 62.5%;
-  }
-
   html,
   body {
     margin: 0;
@@ -28,12 +24,21 @@ const globalStyles = css`
     display: none; /* Chrome, Safari */
   }
 
+  html {
+    font-size: 62.5%;
+  }
+
   body {
     color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #000;
+  }
+
+  #root {
+    width: 100%;
+    max-width: none;
   }
 
   button {

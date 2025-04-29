@@ -41,6 +41,7 @@ const St = {
     font-weight: 800;
     line-height: 200%;
     margin-bottom: 5rem;
+    text-align: center;
   `,
   contentWrapper: styled.div`
     width: 100%;

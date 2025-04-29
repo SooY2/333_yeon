@@ -21,14 +21,14 @@ export default Footer;
 
 const St = {
   container: styled.footer`
-    width: 100vw;
-    padding: 5rem 3rem;
+    width: 100%;
+    padding: 5rem 5rem 7rem;
     display: flex;
     justify-content: space-between;
     color: #929292;
 
     font-family: 'Poppins', sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     line-height: 130%;
 
     border-top: 0.1rem solid #6e6e6e;

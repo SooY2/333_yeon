@@ -28,14 +28,14 @@ const fadeIn = keyframes`
     opacity: 0;
   }
   to {
-    opacity: 1;
+    opacity: 0.7;
   }
 `;
 
 const StBanner = {
   container: styled.div`
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;

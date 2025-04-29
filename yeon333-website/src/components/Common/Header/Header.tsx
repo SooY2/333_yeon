@@ -1,9 +1,41 @@
 import styled from '@emotion/styled';
 import Logo from '../Logo/Logo';
+import { useEffect, useState } from 'react';
+import useViewport from '../../../hooks/useViewPort';
 
 const Header = () => {
-  return (
-    <StHeader.container>
+  const { isMobile } = useViewport();
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const handleScroll = () => {
+    const currentScrollY = window.scrollY;
+
+    // 스크롤 방향 감지
+    if (currentScrollY > lastScrollY) {
+      // 스크롤 내리는 중 → 헤더 숨김
+      setIsVisible(false);
+    } else {
+      // 스크롤 올리는 중 → 헤더 보임
+      setIsVisible(true);
+    }
+
+    setLastScrollY(currentScrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [lastScrollY]);
+  return isMobile ? (
+    <StMobile.container>
+      <Logo type='small' />
+    </StMobile.container>
+  ) : (
+    <StHeader.container isVisible={isVisible}>
       <StHeader.wrapper>
         <StHeader.nav>
           <div>work note</div>
@@ -21,11 +53,14 @@ const Header = () => {
 export default Header;
 
 const StHeader = {
-  container: styled.header`
+  container: styled.header<{ isVisible: boolean }>`
+    transform: translateY(${({ isVisible }) => (isVisible ? '0' : '-100%')});
+    transition: transform 0.3s ease-in-out;
+
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -66,5 +101,20 @@ const StHeader = {
     gap: 5rem;
     font-size: 1.6rem;
     font-family: 'Nanum Myeongjo';
+  `,
+};
+
+const StMobile = {
+  container: styled.header`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 2rem;
+    margin: 0;
   `,
 };
