@@ -1,3 +1,4 @@
+import Footer from '../components/Common/Footer/Footer';
 import Header from '../components/Common/Header/Header';
 import Archive from '../components/Onboarding/ArchiveSection/Archive';
 import Banner from '../components/Onboarding/BannerSection/Banner';
@@ -12,6 +13,7 @@ const Onboarding = () => {
       <Introduction />
       <VirtualInstallation />
       <Archive />
+      <Footer />
     </>
   );
 };
