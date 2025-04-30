@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { Group, LoopOnce } from 'three';
 
 export default function AnimationScene() {
