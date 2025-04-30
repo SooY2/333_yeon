@@ -1,20 +1,36 @@
 import styled from '@emotion/styled';
+import useViewport from '../../../hooks/useViewPort';
 
 const Archive = () => {
+  const { isMobile } = useViewport();
   return (
     <St.container>
       <St.title>Photo & Video Archive</St.title>
-      <St.contentWrapper>
+      <St.contentWrapper isMobile={isMobile}>
         <St.content>
           <img src='archive1_img.jpeg' />
         </St.content>
         <St.content>
-          <video src='IMG_6788.mov' controls={false} autoPlay loop muted>
+          <video
+            src='IMG_6788.mov'
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
             Your browser does not support the video tag.
           </video>
         </St.content>
         <St.content>
-          <video src='banner_video.mp4' controls={false} autoPlay loop muted>
+          <video
+            src='banner_video.mp4'
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
             Your browser does not support the video tag.
           </video>
         </St.content>
@@ -32,7 +48,7 @@ const St = {
     align-items: center;
     justify-content: flex-start;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     padding: 10rem 20rem;
   `,
   title: styled.p`
@@ -43,10 +59,10 @@ const St = {
     margin-bottom: 5rem;
     text-align: center;
   `,
-  contentWrapper: styled.div`
+  contentWrapper: styled.div<{ isMobile: boolean }>`
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
     justify-content: space-around;
     align-items: center;
     gap: 5rem;

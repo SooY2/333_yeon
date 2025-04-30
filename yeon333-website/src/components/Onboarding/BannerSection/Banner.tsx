@@ -1,21 +1,24 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import Logo from '../../Common/Logo/Logo';
+import useViewport from '../../../hooks/useViewPort';
 
 const Banner = () => {
+  const { isMobile } = useViewport();
   return (
     <StBanner.container>
       <StBanner.videoWrapper>
-        <StBanner.video src='banner_video.mp4' autoPlay loop muted>
+        <StBanner.video src='banner_video.mp4' autoPlay loop muted playsInline>
           Your browser does not support the video tag.
         </StBanner.video>
       </StBanner.videoWrapper>
       <StBanner.textWrapper>
         <StBanner.title>
-          <Logo type='large' />
+          {isMobile ? <Logo type='regular' /> : <Logo type='large' />}
         </StBanner.title>
-        <StBanner.subTitle>2025 GLOBAL MEDIA</StBanner.subTitle>
-        <StBanner.subTitle>GRADUATION EXIBITION</StBanner.subTitle>
+        <StBanner.subTitle isMobile={isMobile}>
+          2025 GLOBAL MEDIA{`\n`}GRADUATION EXIBITION
+        </StBanner.subTitle>
       </StBanner.textWrapper>
     </StBanner.container>
   );
@@ -69,8 +72,8 @@ const StBanner = {
   title: styled.div`
     margin-bottom: 3rem;
   `,
-  subTitle: styled.p`
-    font-size: 3.5rem;
+  subTitle: styled.pre<{ isMobile: boolean }>`
+    font-size: ${({ isMobile }) => (isMobile ? '2rem' : '3.5rem')};
     font-family: 'Abril Fatface', sans-serif;
     line-height: 120%;
   `,

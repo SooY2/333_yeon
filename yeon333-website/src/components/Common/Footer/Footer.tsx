@@ -1,8 +1,24 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import useViewport from '../../../hooks/useViewPort';
 
 const Footer = () => {
-  return (
+  const { isMobile } = useViewport();
+  return isMobile ? (
+    <StMobile.container>
+      <pre>
+        2025 Global Media Graduation Exhibition{`\n`}2025.5.23 ~ 5.25 / 인사동
+        마루아트센터
+      </pre>
+      <br />
+      <pre>
+        Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | @soongsil.ac.kr
+        {`\n`}Lee Yeonjae | @soongsil.ac.kr
+        {`\n`}
+        {`\n`}© yeon333. All rights reserved.
+      </pre>
+    </StMobile.container>
+  ) : (
     <St.container>
       <pre>
         reːˈbɔːrn | 2025 Global Media Graduation Exhibition{`\n`}2025.5.23 ~
@@ -36,5 +52,23 @@ const St = {
     & pre:nth-child(2) {
       text-align: end;
     }
+  `,
+};
+
+const StMobile = {
+  container: styled.footer`
+    width: 100%;
+    padding: 2rem 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #929292;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    line-height: 130%;
+
+    border-top: 0.1rem solid #6e6e6e;
   `,
 };
