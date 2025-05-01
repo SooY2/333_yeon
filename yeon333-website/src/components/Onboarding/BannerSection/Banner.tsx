@@ -8,7 +8,14 @@ const Banner = () => {
   return (
     <StBanner.container>
       <StBanner.videoWrapper>
-        <StBanner.video src='banner_video.mp4' autoPlay loop muted playsInline>
+        <StBanner.video
+          src='banner_video.mp4'
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload='auto'
+        >
           Your browser does not support the video tag.
         </StBanner.video>
       </StBanner.videoWrapper>
