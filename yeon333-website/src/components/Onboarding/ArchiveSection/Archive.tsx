@@ -77,8 +77,8 @@ const St = {
     gap: 10rem;
   `,
   content: styled.div`
-    width: 20rem;
-    height: 30rem;
+    width: 30rem;
+    height: 45rem;
     overflow: hidden;
     border-radius: 2px;
 
