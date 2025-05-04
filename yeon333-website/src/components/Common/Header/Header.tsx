@@ -2,8 +2,10 @@ import styled from '@emotion/styled';
 import Logo from '../Logo/Logo';
 import { useEffect, useState } from 'react';
 import useViewport from '../../../hooks/useViewPort';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
   const { isMobile } = useViewport();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -31,7 +33,7 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return isMobile ? (
-    <StMobile.container>
+    <StMobile.container onClick={() => navigate('/')}>
       <Logo type='small' />
     </StMobile.container>
   ) : (
@@ -41,10 +43,12 @@ const Header = () => {
           <div>work note</div>
           <div>gallery</div>
         </StHeader.nav>
-        <StHeader.logo>
+        <StHeader.logo onClick={() => navigate('/')}>
           <Logo type='small' />
         </StHeader.logo>
-        <StHeader.nav>about 연'3'이</StHeader.nav>
+        <StHeader.nav onClick={() => navigate('/about')}>
+          <div>about 연'3'이</div>
+        </StHeader.nav>
       </StHeader.wrapper>
     </StHeader.container>
   );
@@ -101,6 +105,11 @@ const StHeader = {
     gap: 5rem;
     font-size: 1.6rem;
     font-family: 'Nanum Myeongjo';
+    z-index: 11;
+
+    & div {
+      cursor: pointer;
+    }
   `,
 };
 
