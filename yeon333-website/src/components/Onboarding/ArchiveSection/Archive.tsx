@@ -8,11 +8,8 @@ const Archive = () => {
       <St.title>Photo & Video Archive</St.title>
       <St.contentWrapper isMobile={isMobile}>
         <St.content>
-          <img src='archive1_img.jpeg' />
-        </St.content>
-        <St.content>
           <video
-            src='IMG_6788.mov'
+            src='archive_video_3.mov'
             controls={false}
             autoPlay
             loop
@@ -24,7 +21,19 @@ const Archive = () => {
         </St.content>
         <St.content>
           <video
-            src='banner_video.mp4'
+            src='archive_video_1.mov'
+            controls={false}
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            Your browser does not support the video tag.
+          </video>
+        </St.content>
+        <St.content>
+          <video
+            src='archive_video_2.mov'
             controls={false}
             autoPlay
             loop
@@ -49,7 +58,7 @@ const St = {
     justify-content: flex-start;
     width: 100%;
     min-height: 100vh;
-    padding: 10rem 20rem;
+    padding: 10rem 5rem;
   `,
   title: styled.p`
     font-size: 4.5rem;
@@ -63,9 +72,9 @@ const St = {
     width: 100%;
     display: flex;
     flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 10rem;
   `,
   content: styled.div`
     width: 20rem;

@@ -11,8 +11,8 @@ const Footer = () => {
       </pre>
       <br />
       <pre>
-        Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | @soongsil.ac.kr
-        {`\n`}Lee Yeonjae | @soongsil.ac.kr
+        Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | hayeon525@naver.com
+        {`\n`}Lee Yeonjae | prumy0319@gmail.com
         {`\n`}
         {`\n`}© yeon333. All rights reserved.
       </pre>
@@ -25,8 +25,8 @@ const Footer = () => {
         {`\n`}© yeon333. All rights reserved.
       </pre>
       <pre>
-        Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | @soongsil.ac.kr
-        {`\n`}Lee Yeonjae | @soongsil.ac.kr
+        Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | hayeon525@naver.com
+        {`\n`}Lee Yeonjae | prumy0319@gmail.com
       </pre>
     </St.container>
   );
