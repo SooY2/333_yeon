@@ -1,13 +1,19 @@
 import styled from '@emotion/styled';
 import { PROFILE_INFO } from '../constants/PROFILE_INFO';
+import useViewport from '../hooks/useViewPort';
+import { useEffect } from 'react';
 
 const Team = () => {
+  const { isMobile } = useViewport();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <St.container>
       <St.title>
         Team <span>연'3'이</span>
       </St.title>
-      <St.section>
+      <St.section isMobile={isMobile}>
         {PROFILE_INFO.map(({ name, img, role }) => (
           <StProfile.container key={name}>
             <img src={img} alt={name} />
@@ -35,8 +41,7 @@ const St = {
     font-size: 4.5rem;
     font-family: 'Abhaya Libre', sans-serif;
     font-weight: 300;
-    line-height: 200%;
-    margin-bottom: 5rem;
+    margin: 5rem 0;
     text-align: center;
 
     & span {
@@ -44,12 +49,14 @@ const St = {
       font-size: 3rem;
     }
   `,
-  section: styled.section`
+  section: styled.section<{ isMobile: boolean }>`
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10rem;
+
+    flex-direction: ${({ isMobile }) => (isMobile ? 'column' : 'row')};
   `,
 };
 

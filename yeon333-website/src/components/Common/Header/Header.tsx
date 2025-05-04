@@ -33,7 +33,7 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return isMobile ? (
-    <StMobile.container onClick={() => navigate('/')}>
+    <StMobile.container isVisible={isVisible} onClick={() => navigate('/')}>
       <Logo type='small' />
     </StMobile.container>
   ) : (
@@ -114,7 +114,7 @@ const StHeader = {
 };
 
 const StMobile = {
-  container: styled.header`
+  container: styled(StHeader.container)<{ isVisible: boolean }>`
     position: fixed;
     top: 0;
     left: 0;

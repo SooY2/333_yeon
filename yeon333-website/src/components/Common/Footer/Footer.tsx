@@ -1,8 +1,11 @@
 import styled from '@emotion/styled';
 import useViewport from '../../../hooks/useViewPort';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const { isMobile } = useViewport();
+  const navigate = useNavigate();
+
   return isMobile ? (
     <StMobile.container>
       <pre>
@@ -10,6 +13,7 @@ const Footer = () => {
         마루아트센터
       </pre>
       <br />
+      <p onClick={() => navigate('/team')}>Team 연'3'이</p>
       <pre>
         Shin Sooyeon | sooy@soongsil.ac.kr{`\n`}Kim Hayeon | hayeon525@naver.com
         {`\n`}Lee Yeonjae | prumy0319@gmail.com
@@ -69,5 +73,11 @@ const StMobile = {
     line-height: 130%;
 
     border-top: 0.1rem solid #6e6e6e;
+
+    & > p {
+      color: #d3d3d3;
+      text-decoration: underline;
+      margin-bottom: 0.5rem;
+    }
   `,
 };
