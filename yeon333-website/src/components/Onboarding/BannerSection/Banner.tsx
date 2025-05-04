@@ -9,8 +9,16 @@ const Banner = () => {
     <StBanner.container>
       <StBanner.videoWrapper>
         <StBanner.video
-          src='https://res.cloudinary.com/ddamfprof/video/upload/v1746378424/ig894hcq6ogzduafq2wr.mp4'
-          poster='https://res.cloudinary.com/ddamfprof/video/upload/q_auto,f_auto/ig894hcq6ogzduafq2wr.jpg'
+          src={
+            isMobile
+              ? '/banner_video_mobile.mp4'
+              : 'https://res.cloudinary.com/ddamfprof/video/upload/v1746378424/ig894hcq6ogzduafq2wr.mp4'
+          }
+          poster={
+            isMobile
+              ? '/banner_poster_mobile.png'
+              : 'https://res.cloudinary.com/ddamfprof/video/upload/q_auto,f_auto/ig894hcq6ogzduafq2wr.jpg'
+          }
           autoPlay
           loop
           muted
