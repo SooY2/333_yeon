@@ -9,7 +9,7 @@ const Banner = () => {
     <StBanner.container>
       <StBanner.videoWrapper>
         <StBanner.video
-          src='banner_video.mp4'
+          src='https://res.cloudinary.com/ddamfprof/video/upload/v1746378424/ig894hcq6ogzduafq2wr.mp4'
           autoPlay
           loop
           muted
