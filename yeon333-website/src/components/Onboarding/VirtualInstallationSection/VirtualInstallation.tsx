@@ -20,6 +20,7 @@ export default VirtualInstallation;
 
 const St = {
   container: styled.section`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,6 +34,7 @@ const St = {
     font-family: 'Abhaya Libre', sans-serif;
     font-weight: 800;
     line-height: 200%;
+    z-index: 1;
   `,
   explain: styled.pre`
     font-size: 1.6rem;
@@ -40,9 +42,12 @@ const St = {
     line-height: 150%;
     font-weight: 300;
     text-align: center;
+    z-index: 1;
   `,
   threeWrapper: styled.div`
+    position: absolute;
     width: 100%;
+    height: 100%;
     flex: 1;
   `,
 };
