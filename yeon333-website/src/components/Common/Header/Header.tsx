@@ -46,7 +46,7 @@ const Header = () => {
         <StHeader.logo onClick={() => navigate('/')}>
           <Logo type='small' />
         </StHeader.logo>
-        <StHeader.nav onClick={() => navigate('/about')}>
+        <StHeader.nav onClick={() => navigate('/team')}>
           <div>about 연'3'이</div>
         </StHeader.nav>
       </StHeader.wrapper>

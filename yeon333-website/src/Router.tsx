@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import Onboarding from './pages/Onboarding';
 import CommonLayout from './components/Common/Layout/CommonLayout';
+import Team from './pages/Team';
 
 const router = createBrowserRouter([
   {
@@ -12,8 +13,8 @@ const router = createBrowserRouter([
         element: <Onboarding />,
       },
       {
-        path: '/about',
-        element: <>소개페이지</>,
+        path: '/team',
+        element: <Team />,
       },
     ],
   },
