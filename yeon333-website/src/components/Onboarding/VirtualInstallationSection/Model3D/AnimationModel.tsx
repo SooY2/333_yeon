@@ -3,6 +3,7 @@ import { OrbitControls, useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect } from 'react';
 import { Group, LoopOnce } from 'three';
 import styled from '@emotion/styled';
+import useViewport from '../../../../hooks/useViewPort';
 
 export default function AnimationScene() {
   return (
@@ -29,6 +30,8 @@ function AnimationModel() {
   const { scene, animations } = useGLTF('/models/0504_Structure.glb');
   const { actions } = useAnimations(animations, groupRef);
 
+  const { isMobile } = useViewport();
+
   useEffect(() => {
     if (animations.length > 0) {
       console.log('Available Animations:', animations); // 애니메이션 이름을 확인하기 위해 로그 출력
@@ -46,7 +49,7 @@ function AnimationModel() {
 
   return (
     <group ref={groupRef} onClick={handleClick}>
-      <primitive object={scene} scale={0.8} />
+      <primitive object={scene} scale={isMobile ? 0.5 : 0.8} />
     </group>
   );
 }

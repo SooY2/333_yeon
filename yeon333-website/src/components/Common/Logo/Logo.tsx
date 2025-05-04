@@ -7,7 +7,6 @@ const Logo = ({ type }: { type: 'large' | 'regular' | 'small' }) => {
   useEffect(() => {
     const isWindowDevice = /windows/i.test(navigator.userAgent);
     setisWindow(isWindowDevice);
-    console.log(isWindowDevice);
   }, []);
   return (
     <StLogo type={type} dataDevice={isWindow ? 'window' : 'other'}>

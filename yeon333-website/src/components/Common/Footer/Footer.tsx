@@ -52,7 +52,7 @@ const St = {
 
     border-top: 0.1rem solid #6e6e6e;
 
-    & pre:nth-child(2) {
+    & pre:nth-of-type() {
       text-align: end;
     }
   `,

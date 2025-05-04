@@ -16,7 +16,7 @@ const Team = () => {
       <St.section isMobile={isMobile}>
         {PROFILE_INFO.map(({ name, img, role }) => (
           <StProfile.container key={name}>
-            <img src={img} alt={name} />
+            <img src={img} alt={name} loading='lazy' />
             <p>{name}</p>
             <p>{role}</p>
           </StProfile.container>
