@@ -10,11 +10,12 @@ const Banner = () => {
       <StBanner.videoWrapper>
         <StBanner.video
           src='https://res.cloudinary.com/ddamfprof/video/upload/v1746378424/ig894hcq6ogzduafq2wr.mp4'
+          poster='https://res.cloudinary.com/ddamfprof/video/upload/q_auto,f_auto/ig894hcq6ogzduafq2wr.jpg'
           autoPlay
           loop
           muted
           playsInline
-          preload='auto'
+          preload='metadata'
         >
           Your browser does not support the video tag.
         </StBanner.video>
