@@ -27,7 +27,7 @@ const St = {
 
 function AnimationModel() {
   const groupRef = useRef<Group>(null);
-  const { scene, animations } = useGLTF('/models/0504_Structure.glb');
+  const { scene, animations } = useGLTF('/models/0505_Structure.glb');
   const { actions } = useAnimations(animations, groupRef);
 
   const { isMobile } = useViewport();
@@ -49,7 +49,7 @@ function AnimationModel() {
 
   return (
     <group ref={groupRef} onClick={handleClick}>
-      <primitive object={scene} scale={isMobile ? 0.5 : 0.8} />
+      <primitive object={scene} scale={isMobile ? 0.005 : 0.008} />
     </group>
   );
 }
