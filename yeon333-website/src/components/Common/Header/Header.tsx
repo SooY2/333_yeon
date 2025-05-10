@@ -40,7 +40,7 @@ const Header = () => {
     <StHeader.container isVisible={isVisible}>
       <StHeader.wrapper>
         <StHeader.nav>
-          <div>work note</div>
+          <div onClick={() => navigate('/work-note')}>work note</div>
           <div>gallery</div>
         </StHeader.nav>
         <StHeader.logo onClick={() => navigate('/')}>

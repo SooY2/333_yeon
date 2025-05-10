@@ -1,0 +1,44 @@
+import styled from '@emotion/styled';
+import useViewport from '../hooks/useViewPort';
+
+const WorkNote = () => {
+  const { isMobile } = useViewport();
+  return (
+    <St.container isMobile={isMobile}>
+      <St.title>V-LOG</St.title>
+      <iframe
+        src='https://www.youtube.com/embed/fxQcq5Hg3sE'
+        title='YouTube video'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+        allowFullScreen
+      />
+    </St.container>
+  );
+};
+
+export default WorkNote;
+
+const St = {
+  container: styled.div<{ isMobile: boolean }>`
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: ${({ isMobile }) => (isMobile ? '10rem 3rem' : '10rem')};
+
+    & iframe {
+      ${({ isMobile }) =>
+        isMobile ? 'width:100%;' : 'width: 80%; height: 80%;'};
+    }
+  `,
+  title: styled.p`
+    font-size: 4.5rem;
+    font-family: 'Abhaya Libre', sans-serif;
+    font-weight: 800;
+    line-height: 200%;
+    margin-bottom: 5rem;
+    text-align: center;
+  `,
+};
