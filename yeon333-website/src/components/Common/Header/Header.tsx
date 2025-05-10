@@ -3,12 +3,17 @@ import Logo from '../Logo/Logo';
 import { useEffect, useState } from 'react';
 import useViewport from '../../../hooks/useViewPort';
 import { useNavigate } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
+import MenuBtn from '../Buttons/MenuBtn';
 
 const Header = () => {
   const navigate = useNavigate();
   const { isMobile } = useViewport();
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  //모바일 헤더
+  const [isMobileMenu, setIsMobileMenu] = useState(false);
 
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
@@ -33,9 +38,53 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return isMobile ? (
-    <StMobile.container isVisible={isVisible} onClick={() => navigate('/')}>
-      <Logo type='small' />
-    </StMobile.container>
+    <>
+      <AnimatePresence>
+        <StMobile.container isVisible={isVisible}>
+          <div onClick={() => navigate('/')}>
+            <Logo type='small' />
+          </div>
+          <MenuBtn
+            isOpen={isMobileMenu}
+            toggle={() => setIsMobileMenu((prev) => !prev)}
+          />
+        </StMobile.container>
+        {isMobileMenu && (
+          <StMobile.menuContainer
+            key='menu'
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <StMobile.nav
+              onClick={() => {
+                setIsMobileMenu(false);
+                navigate('/');
+              }}
+            >
+              HOME
+            </StMobile.nav>
+            <StMobile.nav
+              onClick={() => {
+                setIsMobileMenu(false);
+                navigate('/work-note');
+              }}
+            >
+              V-LOG
+            </StMobile.nav>
+            <StMobile.nav
+              onClick={() => {
+                setIsMobileMenu(false);
+                navigate('/team');
+              }}
+            >
+              TEAM
+            </StMobile.nav>
+          </StMobile.menuContainer>
+        )}
+      </AnimatePresence>
+    </>
   ) : (
     <StHeader.container isVisible={isVisible}>
       <StHeader.wrapper>
@@ -82,6 +131,7 @@ const StHeader = {
     width: 100%;
     height: 100%;
     padding: 2.5rem 3rem;
+    background-color: #000;
   `,
   logo: styled.div`
     position: absolute;
@@ -119,11 +169,36 @@ const StMobile = {
     top: 0;
     left: 0;
     width: 100%;
+    height: 8rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     z-index: 10;
     padding: 2rem;
     margin: 0;
+  `,
+  menuContainer: styled(motion.div)`
+    position: fixed;
+    width: 100%;
+    height: calc(100vh - 8rem);
+    bottom: 0;
+    z-index: 10;
+    background-color: #000;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+  `,
+  nav: styled.nav`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5rem;
+    font-size: 2rem;
+    font-family: 'Nanum Myeongjo';
+    x & div {
+      cursor: pointer;
+    }
   `,
 };

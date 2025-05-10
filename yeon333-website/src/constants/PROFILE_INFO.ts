@@ -2,7 +2,7 @@ import {
   profileHayeon,
   profileSooyeon,
   profileYeonjae,
-} from '../assets/profile/0_indes';
+} from '../assets/profile/0_index';
 
 // 프로필 정보
 export const PROFILE_INFO = [
