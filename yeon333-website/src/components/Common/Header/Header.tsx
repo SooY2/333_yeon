@@ -186,6 +186,8 @@ const StMobile = {
     z-index: 10;
     padding: 2rem;
     margin: 0;
+
+    background-color: #000;
   `,
   menuContainer: styled(motion.div)`
     position: fixed;
