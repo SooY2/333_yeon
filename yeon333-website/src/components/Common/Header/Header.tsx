@@ -40,7 +40,7 @@ const Header = () => {
   return isMobile ? (
     <>
       <AnimatePresence>
-        <StMobile.container isVisible={isVisible}>
+        <StMobile.container isVisible={isVisible} isMobileMenu={isMobileMenu}>
           <div onClick={() => navigate('/')}>
             <Logo type='small' />
           </div>
@@ -164,7 +164,17 @@ const StHeader = {
 };
 
 const StMobile = {
-  container: styled(StHeader.container)<{ isVisible: boolean }>`
+  container: styled(StHeader.container)<{
+    isVisible: boolean;
+    isMobileMenu: boolean;
+  }>`
+    transform: ${({ isMobileMenu, isVisible }) =>
+      isMobileMenu
+        ? 'none'
+        : isVisible
+        ? 'translateY(0)'
+        : 'translateY(-100%)'};
+
     position: fixed;
     top: 0;
     left: 0;
