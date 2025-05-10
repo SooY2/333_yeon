@@ -1,8 +1,12 @@
 import styled from '@emotion/styled';
 import useViewport from '../hooks/useViewPort';
+import { useEffect } from 'react';
 
 const WorkNote = () => {
   const { isMobile } = useViewport();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <St.container isMobile={isMobile}>
       <St.title>V-LOG</St.title>
