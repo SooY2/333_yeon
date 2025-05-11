@@ -15,6 +15,22 @@ const Header = () => {
   //모바일 헤더
   const [isMobileMenu, setIsMobileMenu] = useState(false);
 
+  //모바일헤더 스크롤 x
+  useEffect(() => {
+    if (isMobileMenu) {
+      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+    };
+  }, [isMobileMenu]);
+
   const handleScroll = () => {
     const currentScrollY = window.scrollY;
 
@@ -38,7 +54,7 @@ const Header = () => {
     };
   }, [lastScrollY]);
   return isMobile ? (
-    <>
+    <StMobile.MobileContainer>
       <AnimatePresence>
         <StMobile.container isVisible={isVisible} isMobileMenu={isMobileMenu}>
           <div onClick={() => navigate('/')}>
@@ -84,7 +100,7 @@ const Header = () => {
           </StMobile.menuContainer>
         )}
       </AnimatePresence>
-    </>
+    </StMobile.MobileContainer>
   ) : (
     <StHeader.container isVisible={isVisible}>
       <StHeader.wrapper>
@@ -164,6 +180,10 @@ const StHeader = {
 };
 
 const StMobile = {
+  MobileContainer: styled.div`
+    display: flex;
+    flex-direction: column;
+  `,
   container: styled(StHeader.container)<{
     isVisible: boolean;
     isMobileMenu: boolean;
@@ -192,7 +212,7 @@ const StMobile = {
   menuContainer: styled(motion.div)`
     position: fixed;
     width: 100%;
-    height: calc(100vh - 8rem);
+    height: calc(100dvh - 8rem);
     bottom: 0;
     z-index: 10;
     background-color: #000;
