@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 import { PROFILE_INFO } from '../constants/PROFILE_INFO';
 import useViewport from '../hooks/useViewPort';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const Team = () => {
   const { isMobile } = useViewport();
@@ -9,7 +10,12 @@ const Team = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <St.container>
+    <St.container
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
       <St.title>
         Team <span>연'3'이</span>
       </St.title>
@@ -29,7 +35,7 @@ const Team = () => {
 export default Team;
 
 const St = {
-  container: styled.div`
+  container: styled(motion.div)`
     width: 100%;
     display: flex;
     flex-direction: column;

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import useViewport from '../hooks/useViewPort';
 import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const WorkNote = () => {
   const { isMobile } = useViewport();
@@ -8,7 +9,13 @@ const WorkNote = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <St.container isMobile={isMobile}>
+    <St.container
+      isMobile={isMobile}
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 2, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
       <St.title>V-LOG</St.title>
       <iframe
         src='https://www.youtube.com/embed/fxQcq5Hg3sE'
@@ -23,7 +30,7 @@ const WorkNote = () => {
 export default WorkNote;
 
 const St = {
-  container: styled.div<{ isMobile: boolean }>`
+  container: styled(motion.div)<{ isMobile: boolean }>`
     width: 100%;
     height: 100vh;
     display: flex;

@@ -1,11 +1,19 @@
 import styled from '@emotion/styled';
 import useViewport from '../../../hooks/useViewPort';
+import { motion } from 'framer-motion';
 
 const Archive = () => {
   const { isMobile } = useViewport();
   return (
     <St.container>
-      <St.title>Photo & Video Archive</St.title>
+      <St.title
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 2, ease: 'easeOut' }}
+        viewport={{ once: false }}
+      >
+        Photo & Video Archive
+      </St.title>
       <St.contentWrapper isMobile={isMobile}>
         <St.content>
           <video
@@ -59,8 +67,10 @@ const St = {
     width: 100%;
     min-height: 100vh;
     padding: 10rem 5rem;
+
+    background-color: #000;
   `,
-  title: styled.p`
+  title: styled(motion.p)`
     font-size: 4.5rem;
     font-family: 'Abhaya Libre', sans-serif;
     font-weight: 800;
