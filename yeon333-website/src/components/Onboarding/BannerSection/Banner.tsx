@@ -33,7 +33,7 @@ const Banner = () => {
           {isMobile ? <Logo type='regular' /> : <Logo type='large' />}
         </StBanner.title>
         <StBanner.subTitle isMobile={isMobile}>
-          2025 GLOBAL MEDIA{`\n`}GRADUATION EXIBITION
+          2025 GLOBAL MEDIA{`\n`}GRADUATION EXHIBITION
         </StBanner.subTitle>
       </StBanner.textWrapper>
     </StBanner.container>
