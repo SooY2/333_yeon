@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import Banner from '../components/Onboarding/BannerSection/Banner';
 import VirtualInstallation from '../components/Onboarding/VirtualInstallationSection/VirtualInstallation';
+import LiveExhibition from '../components/Onboarding/LiveExhibitionSection/LiveExhibition';
 
 // Lazy load components
 const Introduction = lazy(
@@ -18,6 +19,7 @@ const Onboarding = () => {
         <Introduction />
       </Suspense>
       <VirtualInstallation />
+      <LiveExhibition />
       <Suspense fallback={null}>
         <Archive />
       </Suspense>
